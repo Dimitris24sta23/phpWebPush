@@ -24,7 +24,6 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 
 const applicationServerPublicKey = 'BD8SozdRZ5kh_f8yVZk1yluzpJPF3FpanXk9ucrlwoJf2hMMA1R41z7LgO_K3F6QmuUs2EHLBRdPWj4f3xDFzKU';
 
-// Private key: r9Oz6tV7jq3hFIuKj0VlTKbVUhxmet5iCng1gsI6SeU (I will remove this from here)
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -74,7 +73,7 @@ function updateSubscriptionOnServer(subscription) {
 
   console.log(payload);
 
-  let user_email = "dimitrisbor@hotmail.com";
+  let user_email = "demo@demo.com";
   let age = 20;
 
   $.ajax({
@@ -114,9 +113,3 @@ function subscribeUser() {
       console.log('Failed to subscribe the user: ', err);
     });
 }
-
-
-/*
-Firebase:
-  AAAALK4XSMY:APA91bEUtgagfJ5e67u8P_YSph1z5I2x98vTsAE3qrJIHWGSZvwfrI98-y9lwdoPBEbDYD15dGC6Fu2pPLl9Q0TodsU2UYpR_erYSLd9rdBymqtANUZs3ln_8u47glkmkthDicrj09qx
-  AIzaSyCU70c3XI8te1QoozpdqG0rQBJgW_UOgxk*/
