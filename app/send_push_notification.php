@@ -27,7 +27,7 @@ $res = $webPush->sendNotification(
     "Hello!",
     $subscription['keys']['p256dh'],
     $subscription['keys']['auth'],
-    false
+    true
 );
 
 // handle eventual errors here, and remove the subscription from your server if it is expired
