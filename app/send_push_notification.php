@@ -7,9 +7,13 @@ use Minishlink\WebPush\WebPush;
 // because you already stored it (cf. push_subscription.php)
 //$subscription = json_decode(file_get_contents('php://input'), true);
 
-$subscription = $_POST['payload'];
+$subscription = $_POST['subscription'];
+
+$payload = $_POST['payload'];
 
 //echo $subscription['keys']['auth'];
+
+
 
 
 $auth = array(
@@ -20,14 +24,22 @@ $auth = array(
     ),
 );
 
+$defaultOptions = array(
+    'TTL' => 300, // defaults to 4 weeks
+    'urgency' => 'normal', // protocol defaults to "normal"
+    'topic' => 'new_event', // not defined by default,
+    'batchSize' => 200, // defaults to 1000
+);
+
 $webPush = new WebPush($auth);
 
 $res = $webPush->sendNotification(
     $subscription['endpoint'],
-    "Hello!",
+    $payload,
     $subscription['keys']['p256dh'],
     $subscription['keys']['auth'],
-    true
+    true,
+    $defaultOptions
 );
 
 // handle eventual errors here, and remove the subscription from your server if it is expired

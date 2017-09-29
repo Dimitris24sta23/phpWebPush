@@ -4,10 +4,20 @@ $(function(){
     var subscription = JSON.parse($(this).attr('data-payload'));
     console.log(subscription)
 
+    var payload = {
+      "title": "XE Notifications",
+      "message": "Ευχαριστούμε για την εγγραφή σας!",
+      "icon": "https://promotion.xe.gr/xePush/images/smalltile.png",
+      "image": "https://promotion.xe.gr/xePush/images/image.jpg"
+    };
+
+    payload = JSON.stringify(payload);
+
     $.ajax({
       url : 'send_push_notification.php',
       data: {
-        "payload": subscription
+        "subscription": subscription,
+        "payload": payload
       },
       type: "POST",
       success : function(response){

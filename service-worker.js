@@ -1,20 +1,19 @@
 self.addEventListener('push', function(e) {
+
+  var data = JSON.parse(e.data.text());
+  console.log(data);
+
   var options = {
-    body: 'This notification was generated from a push!',
-    icon: 'images/example.png',
+    body: data.message,
+    icon: data.icon,
+    image: data.image,
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),
       primaryKey: '2'
-    },
-    actions: [
-      {action: 'explore', title: 'Explore this new world',
-        icon: 'images/checkmark.png'},
-      {action: 'close', title: 'Close',
-        icon: 'images/xmark.png'},
-    ]
+    }
   };
   e.waitUntil(
-    self.registration.showNotification('Hello world!', options)
+    self.registration.showNotification(data.title, options)
   );
 });

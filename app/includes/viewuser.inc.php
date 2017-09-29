@@ -15,7 +15,17 @@ class ViewUser extends User {
 
         if (is_array($datas) || is_object($datas)) {
             foreach ($datas as $data) {
-                echo "Device_ID: " . $data['device_id'] . " / User_ID: " . $data['user_id'] . " / Payload: " . $data['payload']. " <a href='#' data-payload='" . $data['payload']. "' class='sendNotification'>Send</a> <br><br>";
+
+                echo '<div class="card">';
+                echo '<div class="card-header">';
+                         echo 'Device ID : '. $data['device_id'];
+                echo '</div>';
+                echo '<div class="card-body">';
+                echo '<h4 class="card-title">User ID: '. $data["user_id"] .'</h4>';
+                echo '<p class="card-text">'. $data["payload"].'</p>';
+                echo "<a href='#' class='btn btn-primary sendNotification' data-payload='". $data["payload"]."'>Send</a>";
+                echo '</div>';
+                echo '</div>';
             }
         }
     }

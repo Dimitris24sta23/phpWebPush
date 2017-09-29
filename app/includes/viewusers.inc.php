@@ -15,7 +15,10 @@ class ViewUsers extends User {
 
         if (is_array($datas) || is_object($datas)) {
             foreach ($datas as $data) {
-                echo "ID: " . $data['id'] . " / Email: " . $data['email'] . " / Age: " . $data['age'] ." - <a href='viewUser.php?id=".$data['id']."'>Details</a> <br>";
+                echo "<th scope='row'>".$data['id']."</th>";
+                echo "<td>" . $data['email'] . "</td>";
+                echo "<td>" . $data['age'] ."</td>";
+                echo "<td><a href='viewUser.php?id=".$data['id']."'>Show</a> </td>";
             }
         }
     }

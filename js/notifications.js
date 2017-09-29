@@ -52,10 +52,13 @@ function initialiseUI() {
       isSubscribed = !(subscription === null);
       if (isSubscribed) {
         console.log('getSubscription: User is subscribed.');
+        $('.userSub').html("You are subscribed");
         const payload = document.querySelector('.payload');
         payload.textContent = JSON.stringify(subscription);
+        $('.subscription').show();
       } else {
         console.log('getSubscription: User is NOT subscribed.');
+        $('.userSub').html("You are not subscribed");
         subscribeUser();
       }
     });
@@ -65,7 +68,6 @@ function initialiseUI() {
 
 function updateSubscriptionOnServer(subscription) {
   // TODO: Send subscription to application server
-
   const showpayload = document.querySelector('.payload');
   showpayload.textContent = JSON.stringify(subscription);
 
@@ -103,7 +105,8 @@ function subscribeUser() {
   })
     .then(function(subscription) {
       console.log('User is now subscribed.');
-
+      $('.userSub').html("You are subscribed");
+      $('.subscription').show();
       updateSubscriptionOnServer(subscription);
 
       isSubscribed = true;
