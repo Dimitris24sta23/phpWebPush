@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="userFunctions.js"></script>
 </head>
 
 <body>
@@ -38,9 +38,11 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/xePush/app/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/xePush/">Register <span class="sr-only">(current)</span></a>
             </li>
-
+            <li class="nav-item active">
+                <a class="nav-link" href="/xePush/app/">Users <span class="sr-only">(current)</span></a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -57,7 +59,8 @@
                 <th>#</th>
                 <th>Email</th>
                 <th>Age</th>
-                <th>Details</th>
+                <th>Devices</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>

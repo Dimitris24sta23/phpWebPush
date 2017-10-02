@@ -20,6 +20,9 @@
         .starter-template {
             padding: 3rem 1.5rem;
         }
+        .card{
+            margin-bottom: 15px;
+        }
     </style>
 
     <title>Notifications Admin</title>
@@ -41,7 +44,10 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/xePush/app/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/xePush/">Register <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/xePush/app/">Users <span class="sr-only">(current)</span></a>
             </li>
 
         </ul>

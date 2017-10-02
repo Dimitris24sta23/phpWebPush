@@ -66,6 +66,35 @@ function initialiseUI() {
 
 }
 
+function sendWelcomeNotification(){
+  var subscription = JSON.parse($(".payload").html());
+  console.log(subscription)
+
+  var payload = {
+    "title": "XE Notifications",
+    "message": "Ευχαριστούμε για την εγγραφή σας!",
+    "icon": "https://promotion.xe.gr/xePush/images/smalltile.png",
+    "image": "https://promotion.xe.gr/xePush/images/image.jpg"
+  };
+
+  payload = JSON.stringify(payload);
+
+  $.ajax({
+    url : 'app/send_push_notification.php',
+    data: {
+      "subscription": subscription,
+      "payload": payload
+    },
+    type: "POST",
+    success : function(response){
+      //alert (response);
+    }, //end success
+    error: function(xhr) {
+
+    }
+  }); //end ajax
+}
+
 function updateSubscriptionOnServer(subscription) {
   // TODO: Send subscription to application server
   const showpayload = document.querySelector('.payload');
@@ -88,6 +117,7 @@ function updateSubscriptionOnServer(subscription) {
     type: "POST",
     success : function(response){
       console.log ('success');
+      sendWelcomeNotification();
     }, //end success
     error: function(xhr) {
 

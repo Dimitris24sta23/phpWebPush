@@ -19,6 +19,7 @@ class ViewUsers extends User {
                 echo "<td>" . $data['email'] . "</td>";
                 echo "<td>" . $data['age'] ."</td>";
                 echo "<td><a href='viewUser.php?id=".$data['id']."'>Show</a> </td>";
+                echo "<td><a href='#' class='deleteDevices' data-id='".$data['id']."'>Delete</a> </td>";
             }
         }
     }
